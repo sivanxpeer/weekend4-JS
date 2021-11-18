@@ -1,6 +1,5 @@
 
 function accum(string){
-    // const array = Array(string);
     let res = "";
     
     for(let i=0;i<string.length;i++){
