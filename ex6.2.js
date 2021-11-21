@@ -1,18 +1,23 @@
 function countNumberOfDuplicates(string){
-    let arr=string.split("").sort();    
-    let res={};
-    for(let i=0;i<arr.length;i++){
-        if(!res[arr[i]]){
-            res[arr[i]]=0;
+    let obj={};
+    string=string.toLowerCase();
+    for(let i=0;i<string.length;i++){
+        if(!obj[string[i]]){
+            obj[string[i]]=1;
         }
-        else if(res[arr[i]]===0){
-            res[arr[i]]++;
+        else{
+            obj[string[i]]+=1;
         }
     }
-    return res;
+    for(key in obj){
+        if(obj[key]===1)
+            obj[key]-=1;
+    }
 
+    return obj;
 }
 
 console.log(countNumberOfDuplicates("ABBA"));
 console.log(countNumberOfDuplicates("aA11"));
 console.log(countNumberOfDuplicates("indivisibility"));
+console.log(countNumberOfDuplicates("Mississippi"));
